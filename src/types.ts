@@ -39,6 +39,25 @@ export interface Horse {
   jockeyChange: boolean;
   /** 斤量 */
   weight: number;
+  /** 馬場状態別成績 [出走数, 勝利数, 連対数] */
+  trackConditionRecord?: {
+    good: [number, number, number];      // 良
+    yielding: [number, number, number];  // 稍重
+    soft: [number, number, number];      // 重
+    heavy: [number, number, number];     // 不良
+  };
+  /** 距離適性 */
+  distanceRecord?: {
+    wins2400plus: number;   // 2400m以上での勝利数
+    runs2400plus: number;   // 2400m以上での出走数
+  };
+  /** 中山コース実績 */
+  nakayamaRecord?: {
+    wins: number;
+    runs: number;
+  };
+  /** 脚質 */
+  runningStyle?: '逃げ' | '先行' | '差し' | '追込';
 }
 
 /** スコアリング結果 */
@@ -65,6 +84,14 @@ export interface ScoreResult {
   g1Score: number;
   /** 継続騎乗スコア */
   continuityScore: number;
+  /** 馬場適性スコア */
+  trackConditionScore: number;
+  /** 距離適性スコア */
+  distanceScore: number;
+  /** 中山適性スコア */
+  courseScore: number;
+  /** 脚質スコア */
+  runningStyleScore: number;
   /** 予測順位 */
   predictedRank: number;
   /** 信頼度 (A/B/C) */
@@ -89,6 +116,22 @@ export interface ScoringConfig {
   g1Weight: number;
   /** 継続騎乗の重み */
   continuityWeight: number;
+  /** 馬場適性の重み */
+  trackConditionWeight: number;
+  /** 距離適性の重み */
+  distanceWeight: number;
+  /** 中山適性の重み */
+  courseWeight: number;
+  /** 脚質の重み */
+  runningStyleWeight: number;
+}
+
+/** レース当日のコンディション */
+export interface RaceCondition {
+  /** 天気 */
+  weather: '晴' | '曇' | '雨' | '小雨' | '雪';
+  /** 馬場状態 */
+  trackCondition: '良' | '稍重' | '重' | '不良';
 }
 
 /** 予測結果 */

@@ -30,8 +30,8 @@ interface BacktestResult {
 }
 
 function runBacktest(race: PastRaceResult): BacktestResult {
-  // 予測実行
-  const prediction = predictRace(race.horses, DEFAULT_CONFIG);
+  // 予測実行（馬場状態を考慮）
+  const prediction = predictRace(race.horses, DEFAULT_CONFIG, race.trackCondition);
   const predictedTop3 = prediction.scores.slice(0, 3).map(s => s.number);
 
   // 実際の着順
@@ -177,7 +177,7 @@ function printDetailedAnalysis(results: BacktestResult[]): void {
 
   results.forEach(r => {
     const race = pastRaces.find(p => p.year === r.year)!;
-    const prediction = predictRace(race.horses, DEFAULT_CONFIG);
+    const prediction = predictRace(race.horses, DEFAULT_CONFIG, race.trackCondition);
     const predictedTop5 = prediction.scores.slice(0, 5);
 
     console.log(chalk.yellow(`━━━ ${r.year}年 ━━━`));

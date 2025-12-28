@@ -7,14 +7,18 @@ import type { Horse, ScoreResult, ScoringConfig, PredictionResult } from '../typ
 
 /** デフォルトの重み設定（バックテスト結果に基づき改善） */
 export const DEFAULT_CONFIG: ScoringConfig = {
-  wakuWeight: 8,       // 枠順は重要だが過大評価しない（外枠でも好走あり）
-  ageWeight: 10,       // 年齢
-  jockeyWeight: 18,    // 騎手は重要
-  trainerWeight: 12,   // 厩舎（木村哲也、友道など実績厩舎は強い）
-  bloodlineWeight: 10, // 血統
-  recentFormWeight: 12,// 近走成績（過大評価しない、実力馬は巻き返す）
-  g1Weight: 20,        // G1実績を最重視（底力勝負）
-  continuityWeight: 10,// 継続騎乗（乗り替わりでも実力騎手なら問題なし）
+  wakuWeight: 6,       // 枠順は重要だが過大評価しない（外枠でも好走あり）
+  ageWeight: 8,        // 年齢
+  jockeyWeight: 14,    // 騎手は重要
+  trainerWeight: 8,    // 厩舎（木村哲也、友道など実績厩舎は強い）
+  bloodlineWeight: 8,  // 血統
+  recentFormWeight: 10,// 近走成績（過大評価しない、実力馬は巻き返す）
+  g1Weight: 16,        // G1実績を重視（底力勝負）
+  continuityWeight: 6, // 継続騎乗（乗り替わりでも実力騎手なら問題なし）
+  trackConditionWeight: 8,  // 馬場適性（道悪時に重要）
+  distanceWeight: 10,  // 距離適性（2500mは特殊）
+  courseWeight: 10,    // 中山コース適性（重要）
+  runningStyleWeight: 6,// 脚質（先行有利だが差しも可）
 };
 
 /**
@@ -236,9 +240,134 @@ export function calcContinuityScore(horse: Horse): number {
 }
 
 /**
- * 総合スコアを計算
+ * 馬場適性スコア
+ * 道悪での実績を評価（冬の中山は馬場が渋りやすい）
+ * @param trackCondition 当日の馬場状態（オプション）
  */
-export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAULT_CONFIG): ScoreResult {
+export function calcTrackConditionScore(horse: Horse, trackCondition?: '良' | '稍重' | '重' | '不良'): number {
+  if (!horse.trackConditionRecord) {
+    return 50; // データなしは中間評価
+  }
+
+  const record = horse.trackConditionRecord;
+
+  // 良馬場の場合は良馬場成績を重視
+  if (!trackCondition || trackCondition === '良') {
+    const [runs, wins, places] = record.good;
+    if (runs === 0) return 50;
+    const winRate = wins / runs;
+    const placeRate = places / runs;
+    return Math.min(100, Math.round(winRate * 60 + placeRate * 40 + 30));
+  }
+
+  // 道悪の場合は道悪成績を重視
+  const yieldingRuns = record.yielding[0];
+  const softRuns = record.soft[0];
+  const heavyRuns = record.heavy[0];
+  const totalBadRuns = yieldingRuns + softRuns + heavyRuns;
+
+  if (totalBadRuns === 0) {
+    // 道悪経験なし → 未知数だが減点
+    return 40;
+  }
+
+  const badWins = record.yielding[1] + record.soft[1] + record.heavy[1];
+  const badPlaces = record.yielding[2] + record.soft[2] + record.heavy[2];
+  const winRate = badWins / totalBadRuns;
+  const placeRate = badPlaces / totalBadRuns;
+
+  return Math.min(100, Math.round(winRate * 70 + placeRate * 40 + 20));
+}
+
+/**
+ * 距離適性スコア
+ * 有馬記念は2500m、長距離実績が重要
+ */
+export function calcDistanceScore(horse: Horse): number {
+  if (!horse.distanceRecord) {
+    return 50; // データなしは中間評価
+  }
+
+  const { wins2400plus, runs2400plus } = horse.distanceRecord;
+
+  if (runs2400plus === 0) {
+    // 長距離未経験 → 大きなリスク
+    return 30;
+  }
+
+  const winRate = wins2400plus / runs2400plus;
+
+  // 勝利数ボーナス
+  let bonus = 0;
+  if (wins2400plus >= 3) bonus = 20;
+  else if (wins2400plus >= 2) bonus = 15;
+  else if (wins2400plus >= 1) bonus = 10;
+
+  return Math.min(100, Math.round(winRate * 60 + bonus + 30));
+}
+
+/**
+ * 中山コース適性スコア
+ * 中山は小回り・急坂で独特。中山実績が重要
+ */
+export function calcCourseScore(horse: Horse): number {
+  if (!horse.nakayamaRecord) {
+    return 50; // データなしは中間評価
+  }
+
+  const { wins, runs } = horse.nakayamaRecord;
+
+  if (runs === 0) {
+    // 中山未出走 → 未知数
+    return 45;
+  }
+
+  const winRate = wins / runs;
+
+  // 勝利数ボーナス
+  let bonus = 0;
+  if (wins >= 2) bonus = 25;
+  else if (wins >= 1) bonus = 15;
+
+  // 出走経験ボーナス
+  const expBonus = Math.min(10, runs * 3);
+
+  return Math.min(100, Math.round(winRate * 50 + bonus + expBonus + 25));
+}
+
+/**
+ * 脚質スコア
+ * 有馬記念は先行有利、追込不利
+ * 過去10年: 先行5勝、差し2勝、逃げ1勝、追込0勝
+ */
+export function calcRunningStyleScore(horse: Horse): number {
+  if (!horse.runningStyle) {
+    return 60; // データなしは中間評価
+  }
+
+  switch (horse.runningStyle) {
+    case '逃げ':
+      // 逃げは勝ち切りにくいが3着まではある
+      return 70;
+    case '先行':
+      // 先行が最強（5勝/10年）
+      return 100;
+    case '差し':
+      // 差しも好走可能（2勝、連対多数）
+      return 85;
+    case '追込':
+      // 追込は厳しい（0勝、連対なし）
+      return 40;
+    default:
+      return 60;
+  }
+}
+
+/**
+ * 総合スコアを計算
+ * @param trackCondition 当日の馬場状態（オプション）
+ */
+export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAULT_CONFIG, trackCondition?: '良' | '稍重' | '重' | '不良'): ScoreResult {
   const wakuScore = calcWakuScore(horse);
   const ageScore = calcAgeScore(horse);
   const jockeyScore = calcJockeyScore(horse);
@@ -247,6 +376,10 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
   const recentFormScore = calcRecentFormScore(horse);
   const g1Score = calcG1Score(horse);
   const continuityScore = calcContinuityScore(horse);
+  const trackConditionScore = calcTrackConditionScore(horse, trackCondition);
+  const distanceScore = calcDistanceScore(horse);
+  const courseScore = calcCourseScore(horse);
+  const runningStyleScore = calcRunningStyleScore(horse);
 
   // 重み付き平均
   const totalWeight =
@@ -257,7 +390,11 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     config.bloodlineWeight +
     config.recentFormWeight +
     config.g1Weight +
-    config.continuityWeight;
+    config.continuityWeight +
+    config.trackConditionWeight +
+    config.distanceWeight +
+    config.courseWeight +
+    config.runningStyleWeight;
 
   const totalScore = (
     (wakuScore * config.wakuWeight) +
@@ -267,7 +404,11 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     (bloodlineScore * config.bloodlineWeight) +
     (recentFormScore * config.recentFormWeight) +
     (g1Score * config.g1Weight) +
-    (continuityScore * config.continuityWeight)
+    (continuityScore * config.continuityWeight) +
+    (trackConditionScore * config.trackConditionWeight) +
+    (distanceScore * config.distanceWeight) +
+    (courseScore * config.courseWeight) +
+    (runningStyleScore * config.runningStyleWeight)
   ) / totalWeight;
 
   return {
@@ -282,6 +423,10 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     recentFormScore,
     g1Score,
     continuityScore,
+    trackConditionScore,
+    distanceScore,
+    courseScore,
+    runningStyleScore,
     predictedRank: 0, // 後で設定
     confidence: 'C',   // 後で設定
   };
@@ -289,10 +434,11 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
 
 /**
  * 全馬のスコアを計算してランキング
+ * @param trackCondition 当日の馬場状態（オプション）
  */
-export function predictRace(horses: Horse[], config: ScoringConfig = DEFAULT_CONFIG): PredictionResult {
+export function predictRace(horses: Horse[], config: ScoringConfig = DEFAULT_CONFIG, trackCondition?: '良' | '稍重' | '重' | '不良'): PredictionResult {
   // 各馬のスコアを計算
-  const scores = horses.map(h => calculateTotalScore(h, config));
+  const scores = horses.map(h => calculateTotalScore(h, config, trackCondition));
 
   // スコア順にソート
   scores.sort((a, b) => b.totalScore - a.totalScore);

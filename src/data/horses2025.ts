@@ -23,6 +23,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 55,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 2, runs2400plus: 3 }, // 菊花賞3着、セントライト1着
+    nakayamaRecord: { wins: 1, runs: 1 }, // セントライト記念1着
+    trackConditionRecord: { good: [3, 2, 2], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 2,
@@ -41,6 +45,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: true,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 0, runs2400plus: 4 }, // ダービー3着、JC2着、凱旋門賞3着
+    nakayamaRecord: { wins: 0, runs: 2 }, // ホープフルS2着
+    trackConditionRecord: { good: [6, 2, 4], yielding: [1, 0, 0], soft: [2, 0, 1], heavy: [0, 0, 0] }, // 凱旋門賞重馬場3着
   },
   {
     number: 3,
@@ -59,6 +67,10 @@ export const horses2025: Horse[] = [
     arimaExperience: true, // 2023年6着、2024年12着
     jockeyChange: true,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 4, runs2400plus: 8 }, // 天皇賞春2勝、阪神大賞典等
+    nakayamaRecord: { wins: 1, runs: 3 }, // 皐月賞5着、有馬記念6着12着
+    trackConditionRecord: { good: [12, 5, 7], yielding: [2, 1, 2], soft: [1, 1, 1], heavy: [0, 0, 0] }, // 稍重阪神大賞典快勝
   },
   {
     number: 4,
@@ -77,6 +89,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 55,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 0, runs2400plus: 1 }, // ダービー6着
+    nakayamaRecord: { wins: 2, runs: 3 }, // 皐月賞1着、弥生賞9着（稍重）
+    trackConditionRecord: { good: [5, 3, 4], yielding: [1, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // 稍重弥生賞惨敗
   },
   {
     number: 5,
@@ -91,10 +107,14 @@ export const horses2025: Horse[] = [
     lastRaceResult: 1, // エリザベス女王杯1着
     secondLastRaceResult: 3, // 天皇賞秋3着
     lastRaceName: 'エリザベス女王杯',
-    g1Wins: 2, // ホープフルS、有馬記念
+    g1Wins: 3, // ホープフルS、有馬記念、エリザベス女王杯
     arimaExperience: true, // 2024年1着
     jockeyChange: false,
     weight: 55,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 2, runs2400plus: 3 }, // 有馬記念1着、ホープフルS1着
+    nakayamaRecord: { wins: 2, runs: 2 }, // ホープフルS1着、有馬記念1着
+    trackConditionRecord: { good: [7, 4, 5], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // 良馬場巧者
   },
   {
     number: 6,
@@ -113,6 +133,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '逃げ',
+    distanceRecord: { wins2400plus: 1, runs2400plus: 2 }, // 宝塚記念1着
+    nakayamaRecord: { wins: 0, runs: 0 }, // 中山未出走
+    trackConditionRecord: { good: [5, 3, 3], yielding: [2, 1, 2], soft: [1, 1, 1], heavy: [0, 0, 0] }, // 道悪適性◎
   },
   {
     number: 7,
@@ -131,6 +155,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '先行',
+    distanceRecord: { wins2400plus: 0, runs2400plus: 0 }, // ダート馬、芝長距離未経験
+    nakayamaRecord: { wins: 0, runs: 0 }, // 中山未出走
+    trackConditionRecord: { good: [4, 2, 3], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // ダート主体
   },
   {
     number: 8,
@@ -149,6 +177,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 2, runs2400plus: 5 }, // 長距離実績あり
+    nakayamaRecord: { wins: 0, runs: 1 }, // 中山経験少
+    trackConditionRecord: { good: [10, 3, 5], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 9,
@@ -163,10 +195,14 @@ export const horses2025: Horse[] = [
     lastRaceResult: 3, // ジャパンC 3着
     secondLastRaceResult: 7, // 天皇賞秋7着
     lastRaceName: 'ジャパンC',
-    g1Wins: 1, // ダービー
-    arimaExperience: true, // 2024年5着
+    g1Wins: 2, // ダービー、ドバイシーマクラシック
+    arimaExperience: true, // 2024年3着
     jockeyChange: false,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 3, runs2400plus: 5 }, // ダービー、ドバイシーマ、AJCC
+    nakayamaRecord: { wins: 1, runs: 2 }, // AJCC1着、有馬記念3着
+    trackConditionRecord: { good: [8, 4, 6], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 10,
@@ -185,6 +221,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: true,
     weight: 57,
+    runningStyle: '先行',
+    distanceRecord: { wins2400plus: 0, runs2400plus: 3 }, // 長距離経験あるが未勝利
+    nakayamaRecord: { wins: 1, runs: 2 }, // 弥生賞1着
+    trackConditionRecord: { good: [6, 2, 4], yielding: [1, 1, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 11,
@@ -203,6 +243,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '追込',
+    distanceRecord: { wins2400plus: 1, runs2400plus: 4 },
+    nakayamaRecord: { wins: 0, runs: 2 },
+    trackConditionRecord: { good: [8, 2, 4], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 12,
@@ -221,6 +265,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '先行',
+    distanceRecord: { wins2400plus: 3, runs2400plus: 8 }, // 長距離巧者
+    nakayamaRecord: { wins: 1, runs: 3 },
+    trackConditionRecord: { good: [6, 2, 4], yielding: [2, 1, 2], soft: [1, 0, 1], heavy: [0, 0, 0] }, // 道悪適性◎
   },
   {
     number: 13,
@@ -239,6 +287,10 @@ export const horses2025: Horse[] = [
     arimaExperience: false,
     jockeyChange: false,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 1, runs2400plus: 3 },
+    nakayamaRecord: { wins: 0, runs: 1 },
+    trackConditionRecord: { good: [5, 2, 3], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 14,
@@ -257,6 +309,10 @@ export const horses2025: Horse[] = [
     arimaExperience: true, // 過去出走経験あり
     jockeyChange: false,
     weight: 57,
+    runningStyle: '先行',
+    distanceRecord: { wins2400plus: 4, runs2400plus: 12 }, // ステイヤー
+    nakayamaRecord: { wins: 1, runs: 4 },
+    trackConditionRecord: { good: [15, 4, 8], yielding: [3, 1, 2], soft: [1, 0, 1], heavy: [0, 0, 0] },
   },
   {
     number: 15,
@@ -275,6 +331,10 @@ export const horses2025: Horse[] = [
     arimaExperience: true, // 2024年11着
     jockeyChange: true,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 0, runs2400plus: 2 },
+    nakayamaRecord: { wins: 0, runs: 1 }, // 有馬記念11着
+    trackConditionRecord: { good: [8, 3, 5], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
   {
     number: 16,
@@ -293,6 +353,10 @@ export const horses2025: Horse[] = [
     arimaExperience: true, // 2023年2着、2024年3着
     jockeyChange: true,
     weight: 57,
+    runningStyle: '差し',
+    distanceRecord: { wins2400plus: 2, runs2400plus: 5 }, // ダービー、有馬記念2,3着
+    nakayamaRecord: { wins: 0, runs: 3 }, // 有馬記念2着、3着
+    trackConditionRecord: { good: [8, 3, 5], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
   },
 ];
 
