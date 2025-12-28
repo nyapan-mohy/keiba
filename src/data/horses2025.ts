@@ -27,6 +27,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 2, runs2400plus: 3 }, // 菊花賞3着、セントライト1着
     nakayamaRecord: { wins: 1, runs: 1 }, // セントライト記念1着
     trackConditionRecord: { good: [3, 2, 2], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 4, wins: 2, places: 3, isMainJockey: true }, // 荻野極が主戦
   },
   {
     number: 2,
@@ -49,6 +50,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 0, runs2400plus: 4 }, // ダービー3着、JC2着、凱旋門賞3着
     nakayamaRecord: { wins: 0, runs: 2 }, // ホープフルS2着
     trackConditionRecord: { good: [6, 2, 4], yielding: [1, 0, 0], soft: [2, 0, 1], heavy: [0, 0, 0] }, // 凱旋門賞重馬場3着
+    jockeyCompatibility: { rides: 2, wins: 0, places: 1, isMainJockey: false }, // 坂井瑠星は今回から
   },
   {
     number: 3,
@@ -71,6 +73,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 4, runs2400plus: 8 }, // 天皇賞春2勝、阪神大賞典等
     nakayamaRecord: { wins: 1, runs: 3 }, // 皐月賞5着、有馬記念6着12着
     trackConditionRecord: { good: [12, 5, 7], yielding: [2, 1, 2], soft: [1, 1, 1], heavy: [0, 0, 0] }, // 稍重阪神大賞典快勝
+    jockeyCompatibility: { rides: 1, wins: 0, places: 0, isMainJockey: false }, // 団野大成は今回初騎乗
   },
   {
     number: 4,
@@ -93,6 +96,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 0, runs2400plus: 1 }, // ダービー6着
     nakayamaRecord: { wins: 2, runs: 3 }, // 皐月賞1着、弥生賞9着（稍重）
     trackConditionRecord: { good: [5, 3, 4], yielding: [1, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // 稍重弥生賞惨敗
+    jockeyCompatibility: { rides: 5, wins: 2, places: 3, isMainJockey: true }, // デムーロ主戦、皐月賞・天皇賞秋
   },
   {
     number: 5,
@@ -115,6 +119,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 2, runs2400plus: 3 }, // 有馬記念1着、ホープフルS1着
     nakayamaRecord: { wins: 2, runs: 2 }, // ホープフルS1着、有馬記念1着
     trackConditionRecord: { good: [7, 4, 5], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // 良馬場巧者
+    jockeyCompatibility: { rides: 3, wins: 2, places: 2, isMainJockey: false }, // ルメールはホープフルS・エリ女勝利、元主戦は戸崎
   },
   {
     number: 6,
@@ -137,6 +142,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 1, runs2400plus: 2 }, // 宝塚記念1着
     nakayamaRecord: { wins: 0, runs: 0 }, // 中山未出走
     trackConditionRecord: { good: [5, 3, 3], yielding: [2, 1, 2], soft: [1, 1, 1], heavy: [0, 0, 0] }, // 道悪適性◎
+    jockeyCompatibility: { rides: 6, wins: 3, places: 4, isMainJockey: true }, // 武豊主戦、宝塚記念勝利
   },
   {
     number: 7,
@@ -159,6 +165,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 0, runs2400plus: 0 }, // ダート馬、芝長距離未経験
     nakayamaRecord: { wins: 0, runs: 0 }, // 中山未出走
     trackConditionRecord: { good: [4, 2, 3], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] }, // ダート主体
+    jockeyCompatibility: { rides: 8, wins: 4, places: 6, isMainJockey: true }, // 鮫島主戦、JBC・チャンピオンズC
   },
   {
     number: 8,
@@ -181,6 +188,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 2, runs2400plus: 5 }, // 長距離実績あり
     nakayamaRecord: { wins: 0, runs: 1 }, // 中山経験少
     trackConditionRecord: { good: [10, 3, 5], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 10, wins: 2, places: 4, isMainJockey: true }, // 北村友一が主戦
   },
   {
     number: 9,
@@ -203,6 +211,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 3, runs2400plus: 5 }, // ダービー、ドバイシーマ、AJCC
     nakayamaRecord: { wins: 1, runs: 2 }, // AJCC1着、有馬記念3着
     trackConditionRecord: { good: [8, 4, 6], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 7, wins: 3, places: 4, isMainJockey: true }, // 戸崎主戦、ダービー・ドバイシーマ勝利
   },
   {
     number: 10,
@@ -225,6 +234,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 0, runs2400plus: 3 }, // 長距離経験あるが未勝利
     nakayamaRecord: { wins: 1, runs: 2 }, // 弥生賞1着
     trackConditionRecord: { good: [6, 2, 4], yielding: [1, 1, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 3, wins: 1, places: 1, isMainJockey: false }, // 横山武史は今回から乗り替わり
   },
   {
     number: 11,
@@ -247,6 +257,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 1, runs2400plus: 4 },
     nakayamaRecord: { wins: 0, runs: 2 },
     trackConditionRecord: { good: [8, 2, 4], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 12, wins: 1, places: 3, isMainJockey: true }, // 松本大輝が主戦
   },
   {
     number: 12,
@@ -269,6 +280,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 3, runs2400plus: 8 }, // 長距離巧者
     nakayamaRecord: { wins: 1, runs: 3 },
     trackConditionRecord: { good: [6, 2, 4], yielding: [2, 1, 2], soft: [1, 0, 1], heavy: [0, 0, 0] }, // 道悪適性◎
+    jockeyCompatibility: { rides: 15, wins: 2, places: 5, isMainJockey: true }, // 丹内祐次が主戦
   },
   {
     number: 13,
@@ -291,6 +303,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 1, runs2400plus: 3 },
     nakayamaRecord: { wins: 0, runs: 1 },
     trackConditionRecord: { good: [5, 2, 3], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 6, wins: 2, places: 3, isMainJockey: true }, // 川田将雅が主戦
   },
   {
     number: 14,
@@ -313,6 +326,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 4, runs2400plus: 12 }, // ステイヤー
     nakayamaRecord: { wins: 1, runs: 4 },
     trackConditionRecord: { good: [15, 4, 8], yielding: [3, 1, 2], soft: [1, 0, 1], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 20, wins: 4, places: 8, isMainJockey: true }, // 大野拓弥が主戦
   },
   {
     number: 15,
@@ -335,6 +349,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 0, runs2400plus: 2 },
     nakayamaRecord: { wins: 0, runs: 1 }, // 有馬記念11着
     trackConditionRecord: { good: [8, 3, 5], yielding: [0, 0, 0], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 2, wins: 0, places: 1, isMainJockey: false }, // 西村淳也は今回から
   },
   {
     number: 16,
@@ -357,6 +372,7 @@ export const horses2025: Horse[] = [
     distanceRecord: { wins2400plus: 2, runs2400plus: 5 }, // ダービー、有馬記念2,3着
     nakayamaRecord: { wins: 0, runs: 3 }, // 有馬記念2着、3着
     trackConditionRecord: { good: [8, 3, 5], yielding: [1, 0, 1], soft: [0, 0, 0], heavy: [0, 0, 0] },
+    jockeyCompatibility: { rides: 0, wins: 0, places: 0, isMainJockey: false }, // 松山弘平は今回から
   },
 ];
 

@@ -58,6 +58,13 @@ export interface Horse {
   };
   /** 脚質 */
   runningStyle?: '逃げ' | '先行' | '差し' | '追込';
+  /** 騎手×馬の相性 */
+  jockeyCompatibility?: {
+    rides: number;      // 騎乗回数
+    wins: number;       // 勝利数
+    places: number;     // 連対数（1-2着）
+    isMainJockey: boolean; // 主戦騎手かどうか
+  };
 }
 
 /** スコアリング結果 */
@@ -92,6 +99,8 @@ export interface ScoreResult {
   courseScore: number;
   /** 脚質スコア */
   runningStyleScore: number;
+  /** 騎手相性スコア */
+  jockeyCompatibilityScore: number;
   /** 予測順位 */
   predictedRank: number;
   /** 信頼度 (A/B/C) */
@@ -124,6 +133,8 @@ export interface ScoringConfig {
   courseWeight: number;
   /** 脚質の重み */
   runningStyleWeight: number;
+  /** 騎手相性の重み */
+  jockeyCompatibilityWeight: number;
 }
 
 /** レース当日のコンディション */

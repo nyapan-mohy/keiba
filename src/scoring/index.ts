@@ -9,16 +9,17 @@ import type { Horse, ScoreResult, ScoringConfig, PredictionResult } from '../typ
 export const DEFAULT_CONFIG: ScoringConfig = {
   wakuWeight: 6,       // 枠順は重要だが過大評価しない（外枠でも好走あり）
   ageWeight: 8,        // 年齢
-  jockeyWeight: 14,    // 騎手は重要
+  jockeyWeight: 12,    // 騎手は重要（騎手相性と分離したため少し減）
   trainerWeight: 8,    // 厩舎（木村哲也、友道など実績厩舎は強い）
   bloodlineWeight: 8,  // 血統
   recentFormWeight: 10,// 近走成績（過大評価しない、実力馬は巻き返す）
   g1Weight: 16,        // G1実績を重視（底力勝負）
-  continuityWeight: 6, // 継続騎乗（乗り替わりでも実力騎手なら問題なし）
+  continuityWeight: 4, // 継続騎乗（騎手相性と分離したため減）
   trackConditionWeight: 8,  // 馬場適性（道悪時に重要）
   distanceWeight: 10,  // 距離適性（2500mは特殊）
   courseWeight: 10,    // 中山コース適性（重要）
   runningStyleWeight: 6,// 脚質（先行有利だが差しも可）
+  jockeyCompatibilityWeight: 8, // 騎手×馬の相性（主戦騎手かどうかが重要）
 };
 
 /**
@@ -364,6 +365,42 @@ export function calcRunningStyleScore(horse: Horse): number {
 }
 
 /**
+ * 騎手×馬の相性スコア
+ * 主戦騎手や過去に好成績を収めたコンビは高評価
+ * 有馬記念では信頼関係のあるコンビが強い
+ */
+export function calcJockeyCompatibilityScore(horse: Horse): number {
+  if (!horse.jockeyCompatibility) {
+    return 50; // データなしは中間評価
+  }
+
+  const { rides, wins, places, isMainJockey } = horse.jockeyCompatibility;
+
+  // 主戦騎手ボーナス
+  const mainJockeyBonus = isMainJockey ? 25 : 0;
+
+  // 騎乗経験なし
+  if (rides === 0) {
+    return 30 + mainJockeyBonus; // 初コンビは不安
+  }
+
+  // 勝率・連対率を計算
+  const winRate = wins / rides;
+  const placeRate = places / rides;
+
+  // 騎乗回数ボーナス（経験値）
+  let expBonus = 0;
+  if (rides >= 10) expBonus = 15;
+  else if (rides >= 5) expBonus = 10;
+  else if (rides >= 3) expBonus = 5;
+
+  // スコア計算
+  const baseScore = winRate * 40 + placeRate * 30 + expBonus + 25;
+
+  return Math.min(100, Math.round(baseScore + mainJockeyBonus));
+}
+
+/**
  * 総合スコアを計算
  * @param trackCondition 当日の馬場状態（オプション）
  */
@@ -380,6 +417,7 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
   const distanceScore = calcDistanceScore(horse);
   const courseScore = calcCourseScore(horse);
   const runningStyleScore = calcRunningStyleScore(horse);
+  const jockeyCompatibilityScore = calcJockeyCompatibilityScore(horse);
 
   // 重み付き平均
   const totalWeight =
@@ -394,7 +432,8 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     config.trackConditionWeight +
     config.distanceWeight +
     config.courseWeight +
-    config.runningStyleWeight;
+    config.runningStyleWeight +
+    config.jockeyCompatibilityWeight;
 
   const totalScore = (
     (wakuScore * config.wakuWeight) +
@@ -408,7 +447,8 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     (trackConditionScore * config.trackConditionWeight) +
     (distanceScore * config.distanceWeight) +
     (courseScore * config.courseWeight) +
-    (runningStyleScore * config.runningStyleWeight)
+    (runningStyleScore * config.runningStyleWeight) +
+    (jockeyCompatibilityScore * config.jockeyCompatibilityWeight)
   ) / totalWeight;
 
   return {
@@ -427,6 +467,7 @@ export function calculateTotalScore(horse: Horse, config: ScoringConfig = DEFAUL
     distanceScore,
     courseScore,
     runningStyleScore,
+    jockeyCompatibilityScore,
     predictedRank: 0, // 後で設定
     confidence: 'C',   // 後で設定
   };
