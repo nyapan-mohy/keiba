@@ -134,6 +134,126 @@ export const arima2020: PastRaceResult = {
   ],
 };
 
+// 2019年 有馬記念
+export const arima2019: PastRaceResult = {
+  year: 2019,
+  actualResult: [6, 10, 7], // リスグラシュー, サートゥルナーリア, ワールドプレミア
+  horses: [
+    { number: 1, waku: 1, name: 'スカーレットカラー', gender: '牝', age: 4, sire: 'ヴィクトワールピサ', jockey: '岩田康誠', trainer: '高野友和', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 2, lastRaceName: 'エリザベス女王杯', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 2, waku: 1, name: 'スワーヴリチャード', gender: '牡', age: 5, sire: 'ハーツクライ', jockey: 'O.マーフィー', trainer: '庄野靖志', stable: '栗東', lastRaceResult: 5, secondLastRaceResult: 4, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 3, waku: 2, name: 'エタリオウ', gender: '牡', age: 4, sire: 'ステイゴールド', jockey: '横山典弘', trainer: '友道康夫', stable: '栗東', lastRaceResult: 10, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 4, waku: 2, name: 'スティッフェリオ', gender: '牡', age: 5, sire: 'ステイゴールド', jockey: '松岡正海', trainer: '音無秀孝', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 4, lastRaceName: 'ステイヤーズS', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 5, waku: 3, name: 'フィエールマン', gender: '牡', age: 4, sire: 'ディープインパクト', jockey: '池添謙一', trainer: '手塚貴久', stable: '美浦', lastRaceResult: 4, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 6, waku: 3, name: 'リスグラシュー', gender: '牝', age: 5, sire: 'ハーツクライ', jockey: 'D.レーン', trainer: '矢作芳人', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 2, lastRaceName: '宝塚記念', g1Wins: 3, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 7, waku: 4, name: 'ワールドプレミア', gender: '牡', age: 3, sire: 'ディープインパクト', jockey: '武豊', trainer: '友道康夫', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 2, lastRaceName: '菊花賞', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 8, waku: 4, name: 'レイデオロ', gender: '牡', age: 5, sire: 'キングカメハメハ', jockey: '三浦皇成', trainer: '藤沢和雄', stable: '美浦', lastRaceResult: 6, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 9, waku: 5, name: 'アーモンドアイ', gender: '牝', age: 4, sire: 'ロードカナロア', jockey: 'C.ルメール', trainer: '国枝栄', stable: '美浦', lastRaceResult: 3, secondLastRaceResult: 1, lastRaceName: '天皇賞秋', g1Wins: 5, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 10, waku: 5, name: 'サートゥルナーリア', gender: '牡', age: 3, sire: 'ロードカナロア', jockey: 'C.スミヨン', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 4, secondLastRaceResult: 1, lastRaceName: '天皇賞秋', g1Wins: 2, arimaExperience: false, jockeyChange: true, weight: 55 },
+    { number: 11, waku: 6, name: 'キセキ', gender: '牡', age: 5, sire: 'ルーラーシップ', jockey: 'R.ムーア', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 5, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 12, waku: 6, name: 'クロコスミア', gender: '牝', age: 6, sire: 'ステイゴールド', jockey: '藤岡佑介', trainer: '西浦勝一', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 2, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 55 },
+    { number: 13, waku: 7, name: 'アルアイン', gender: '牡', age: 5, sire: 'ディープインパクト', jockey: '北村友一', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 1, lastRaceName: '天皇賞秋', g1Wins: 2, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 14, waku: 7, name: 'ヴェロックス', gender: '牡', age: 3, sire: 'ジャスタウェイ', jockey: '川田将雅', trainer: '中内田充正', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 3, lastRaceName: '菊花賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 15, waku: 8, name: 'アエロリット', gender: '牝', age: 5, sire: 'クロフネ', jockey: '戸崎圭太', trainer: '菊沢隆徳', stable: '美浦', lastRaceResult: 6, secondLastRaceResult: 4, lastRaceName: '天皇賞秋', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 16, waku: 8, name: 'シュヴァルグラン', gender: '牡', age: 7, sire: 'ハーツクライ', jockey: '福永祐一', trainer: '友道康夫', stable: '栗東', lastRaceResult: 7, secondLastRaceResult: 3, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: false, weight: 57 },
+  ],
+};
+
+// 2018年 有馬記念
+export const arima2018: PastRaceResult = {
+  year: 2018,
+  actualResult: [8, 6, 13], // ブラストワンピース, レイデオロ, シュヴァルグラン
+  horses: [
+    { number: 1, waku: 1, name: 'サトノダイヤモンド', gender: '牡', age: 5, sire: 'ディープインパクト', jockey: 'M.バルザローナ', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 5, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 2, waku: 1, name: 'キセキ', gender: '牡', age: 4, sire: 'ルーラーシップ', jockey: '川田将雅', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 8, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 3, waku: 2, name: 'ミッキースワロー', gender: '牡', age: 4, sire: 'トーセンホマレボシ', jockey: '横山典弘', trainer: '菊沢隆徳', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 2, lastRaceName: 'アルゼンチン共和国杯', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 4, waku: 2, name: 'サクラアンプルール', gender: '牡', age: 7, sire: 'キングカメハメハ', jockey: '田辺裕信', trainer: '金成貴史', stable: '美浦', lastRaceResult: 2, secondLastRaceResult: 4, lastRaceName: '天皇賞秋', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 5, waku: 3, name: 'モズカッチャン', gender: '牝', age: 4, sire: 'ハービンジャー', jockey: 'M.デムーロ', trainer: '鶴留明雄', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 7, lastRaceName: 'エリザベス女王杯', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 6, waku: 3, name: 'レイデオロ', gender: '牡', age: 4, sire: 'キングカメハメハ', jockey: 'C.ルメール', trainer: '藤沢和雄', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 5, lastRaceName: '天皇賞秋', g1Wins: 2, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 7, waku: 4, name: 'オジュウチョウサン', gender: '牡', age: 7, sire: 'ステイゴールド', jockey: '武豊', trainer: '和田正一郎', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: '中山大障害', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 8, waku: 4, name: 'ブラストワンピース', gender: '牡', age: 3, sire: 'ハービンジャー', jockey: '池添謙一', trainer: '大竹正博', stable: '美浦', lastRaceResult: 2, secondLastRaceResult: 1, lastRaceName: '菊花賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 9, waku: 5, name: 'ミッキーロケット', gender: '牡', age: 5, sire: 'キングカメハメハ', jockey: 'O.マーフィー', trainer: '音無秀孝', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 7, lastRaceName: '宝塚記念', g1Wins: 1, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 10, waku: 5, name: 'マカヒキ', gender: '牡', age: 5, sire: 'ディープインパクト', jockey: '岩田康誠', trainer: '友道康夫', stable: '栗東', lastRaceResult: 9, secondLastRaceResult: 7, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 11, waku: 6, name: 'パフォーマプロミス', gender: '牡', age: 6, sire: 'ステイゴールド', jockey: 'C.デムーロ', trainer: '藤原英昭', stable: '栗東', lastRaceResult: 5, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 12, waku: 6, name: 'リッジマン', gender: '牡', age: 5, sire: 'スウェプトオーヴァーボード', jockey: '蛯名正義', trainer: '庄野靖志', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 3, lastRaceName: 'ステイヤーズS', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 13, waku: 7, name: 'シュヴァルグラン', gender: '牡', age: 6, sire: 'ハーツクライ', jockey: 'H.ボウマン', trainer: '友道康夫', stable: '栗東', lastRaceResult: 4, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 14, waku: 7, name: 'スマートレイアー', gender: '牝', age: 8, sire: 'ディープインパクト', jockey: '戸崎圭太', trainer: '大久保龍志', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 11, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 15, waku: 8, name: 'クリンチャー', gender: '牡', age: 4, sire: 'ディープスカイ', jockey: '福永祐一', trainer: '宮本博', stable: '栗東', lastRaceResult: 11, secondLastRaceResult: 2, lastRaceName: '凱旋門賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 16, waku: 8, name: 'サウンズオブアース', gender: '牡', age: 7, sire: 'ネオユニヴァース', jockey: '藤岡佑介', trainer: '藤岡健一', stable: '栗東', lastRaceResult: 5, secondLastRaceResult: 3, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+  ],
+};
+
+// 2017年 有馬記念
+export const arima2017: PastRaceResult = {
+  year: 2017,
+  actualResult: [2, 11, 9], // キタサンブラック, クイーンズリング, シュヴァルグラン
+  horses: [
+    { number: 1, waku: 1, name: 'ヤマカツエース', gender: '牡', age: 5, sire: 'キングカメハメハ', jockey: '池添謙一', trainer: '池添兼雄', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 2, lastRaceName: '天皇賞秋', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 2, waku: 1, name: 'キタサンブラック', gender: '牡', age: 5, sire: 'ブラックタイド', jockey: '武豊', trainer: '清水久詞', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: '天皇賞秋', g1Wins: 6, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 3, waku: 2, name: 'トーセンビクトリー', gender: '牝', age: 5, sire: 'キングカメハメハ', jockey: 'R.ムーア', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 7, secondLastRaceResult: 8, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 55 },
+    { number: 4, waku: 2, name: 'ミッキークイーン', gender: '牝', age: 5, sire: 'ディープインパクト', jockey: '浜中俊', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 2, lastRaceName: 'エリザベス女王杯', g1Wins: 2, arimaExperience: true, jockeyChange: false, weight: 55 },
+    { number: 5, waku: 3, name: 'ブレスジャーニー', gender: '牡', age: 3, sire: 'バトルプラン', jockey: '柴田大知', trainer: '古賀慎明', stable: '美浦', lastRaceResult: 5, secondLastRaceResult: 1, lastRaceName: '菊花賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 6, waku: 3, name: 'サトノクロニクル', gender: '牡', age: 3, sire: 'ハーツクライ', jockey: '石橋脩', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 2, lastRaceName: '菊花賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 7, waku: 4, name: 'シャケトラ', gender: '牡', age: 4, sire: 'マンハッタンカフェ', jockey: 'J.モレイラ', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 1, lastRaceName: '日経賞', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 8, waku: 4, name: 'サウンズオブアース', gender: '牡', age: 6, sire: 'ネオユニヴァース', jockey: '藤岡佑介', trainer: '藤岡健一', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 3, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 9, waku: 5, name: 'シュヴァルグラン', gender: '牡', age: 5, sire: 'ハーツクライ', jockey: 'H.ボウマン', trainer: '友道康夫', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 8, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 10, waku: 5, name: 'カレンミロティック', gender: '牡', age: 8, sire: 'ハーツクライ', jockey: '蛯名正義', trainer: '平田修', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 2, lastRaceName: 'アルゼンチン共和国杯', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 11, waku: 6, name: 'クイーンズリング', gender: '牝', age: 5, sire: 'マンハッタンカフェ', jockey: 'C.ルメール', trainer: '吉村圭司', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 3, lastRaceName: 'エリザベス女王杯', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 12, waku: 6, name: 'ルージュバック', gender: '牝', age: 5, sire: 'マンハッタンカフェ', jockey: '戸崎圭太', trainer: '大竹正博', stable: '美浦', lastRaceResult: 5, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 13, waku: 7, name: 'レインボーライン', gender: '牡', age: 4, sire: 'ステイゴールド', jockey: '岩田康誠', trainer: '浅見秀一', stable: '栗東', lastRaceResult: 4, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 14, waku: 7, name: 'スワーヴリチャード', gender: '牡', age: 3, sire: 'ハーツクライ', jockey: 'M.デムーロ', trainer: '庄野靖志', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 15, waku: 8, name: 'サクラアンプルール', gender: '牡', age: 6, sire: 'キングカメハメハ', jockey: '田辺裕信', trainer: '金成貴史', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 3, lastRaceName: '札幌記念', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 16, waku: 8, name: 'サトノクラウン', gender: '牡', age: 5, sire: 'Marju', jockey: 'O.マーフィー', trainer: '堀宣行', stable: '美浦', lastRaceResult: 5, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: true, jockeyChange: true, weight: 57 },
+  ],
+};
+
+// 2016年 有馬記念
+export const arima2016: PastRaceResult = {
+  year: 2016,
+  actualResult: [11, 1, 2], // サトノダイヤモンド, キタサンブラック, ゴールドアクター
+  horses: [
+    { number: 1, waku: 1, name: 'キタサンブラック', gender: '牡', age: 4, sire: 'ブラックタイド', jockey: '武豊', trainer: '清水久詞', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 3, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 2, waku: 1, name: 'ゴールドアクター', gender: '牡', age: 5, sire: 'スクリーンヒーロー', jockey: '吉田隼人', trainer: '中川公成', stable: '美浦', lastRaceResult: 5, secondLastRaceResult: 3, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 3, waku: 2, name: 'マリアライト', gender: '牝', age: 5, sire: 'ディープインパクト', jockey: '蛯名正義', trainer: '久保田貴士', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 4, lastRaceName: '宝塚記念', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 4, waku: 2, name: 'ヤマカツエース', gender: '牡', age: 4, sire: 'キングカメハメハ', jockey: '池添謙一', trainer: '池添兼雄', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 5, lastRaceName: '天皇賞秋', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 5, waku: 3, name: 'アドマイヤデウス', gender: '牡', age: 5, sire: 'アドマイヤドン', jockey: '岩田康誠', trainer: '橋田満', stable: '栗東', lastRaceResult: 4, secondLastRaceResult: 7, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 6, waku: 3, name: 'サウンズオブアース', gender: '牡', age: 5, sire: 'ネオユニヴァース', jockey: 'M.デムーロ', trainer: '藤岡健一', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 7, waku: 4, name: 'デニムアンドルビー', gender: '牝', age: 6, sire: 'ディープインパクト', jockey: '四位洋文', trainer: '角居勝彦', stable: '栗東', lastRaceResult: 8, secondLastRaceResult: 6, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 55 },
+    { number: 8, waku: 4, name: 'ミッキークイーン', gender: '牝', age: 4, sire: 'ディープインパクト', jockey: '浜中俊', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 1, lastRaceName: 'エリザベス女王杯', g1Wins: 2, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 9, waku: 5, name: 'ルージュバック', gender: '牝', age: 4, sire: 'マンハッタンカフェ', jockey: '戸崎圭太', trainer: '大竹正博', stable: '美浦', lastRaceResult: 4, secondLastRaceResult: 5, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 10, waku: 5, name: 'サトノノブレス', gender: '牡', age: 6, sire: 'ディープインパクト', jockey: '和田竜二', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 6, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 11, waku: 6, name: 'サトノダイヤモンド', gender: '牡', age: 3, sire: 'ディープインパクト', jockey: 'C.ルメール', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: '菊花賞', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 12, waku: 6, name: 'シュヴァルグラン', gender: '牡', age: 4, sire: 'ハーツクライ', jockey: '福永祐一', trainer: '友道康夫', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 13, waku: 7, name: 'アルバート', gender: '牡', age: 5, sire: 'アドマイヤドン', jockey: '内田博幸', trainer: '堀宣行', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: 'ステイヤーズS', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 14, waku: 7, name: 'シュヴァルグラン', gender: '牡', age: 4, sire: 'ハーツクライ', jockey: '福永祐一', trainer: '友道康夫', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 15, waku: 8, name: 'アルバート', gender: '牡', age: 5, sire: 'アドマイヤドン', jockey: '戸崎圭太', trainer: '堀宣行', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: 'ステイヤーズS', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 16, waku: 8, name: 'ワンアンドオンリー', gender: '牡', age: 5, sire: 'ハーツクライ', jockey: '横山典弘', trainer: '橋口慎介', stable: '栗東', lastRaceResult: 10, secondLastRaceResult: 6, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: true, jockeyChange: false, weight: 57 },
+  ],
+};
+
+// 2015年 有馬記念
+export const arima2015: PastRaceResult = {
+  year: 2015,
+  actualResult: [7, 14, 5], // ゴールドアクター, サウンズオブアース, キタサンブラック
+  horses: [
+    { number: 1, waku: 1, name: 'ラストインパクト', gender: '牡', age: 5, sire: 'ディープインパクト', jockey: '川田将雅', trainer: '松田博資', stable: '栗東', lastRaceResult: 6, secondLastRaceResult: 4, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 2, waku: 1, name: 'ショウナンパンドラ', gender: '牝', age: 4, sire: 'ディープインパクト', jockey: '池添謙一', trainer: '高野友和', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 3, waku: 2, name: 'ラブリーデイ', gender: '牡', age: 5, sire: 'キングカメハメハ', jockey: '浜中俊', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 4, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 2, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 4, waku: 2, name: 'リアファル', gender: '牡', age: 3, sire: 'ゼンノロブロイ', jockey: '三浦皇成', trainer: '音無秀孝', stable: '栗東', lastRaceResult: 2, secondLastRaceResult: 2, lastRaceName: '菊花賞', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 5, waku: 3, name: 'キタサンブラック', gender: '牡', age: 3, sire: 'ブラックタイド', jockey: '横山典弘', trainer: '清水久詞', stable: '栗東', lastRaceResult: 1, secondLastRaceResult: 14, lastRaceName: '菊花賞', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 6, waku: 3, name: 'トーセンレーヴ', gender: '牡', age: 7, sire: 'ディープインパクト', jockey: '柴田善臣', trainer: '池江泰寿', stable: '栗東', lastRaceResult: 5, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 7, waku: 4, name: 'ゴールドアクター', gender: '牡', age: 4, sire: 'スクリーンヒーロー', jockey: '吉田隼人', trainer: '中川公成', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: 'アルゼンチン共和国杯', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 8, waku: 4, name: 'ワンアンドオンリー', gender: '牡', age: 4, sire: 'ハーツクライ', jockey: '内田博幸', trainer: '橋口慎介', stable: '栗東', lastRaceResult: 7, secondLastRaceResult: 2, lastRaceName: 'ジャパンC', g1Wins: 1, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 9, waku: 5, name: 'アルバート', gender: '牡', age: 4, sire: 'アドマイヤドン', jockey: '蛯名正義', trainer: '堀宣行', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 5, lastRaceName: 'ステイヤーズS', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 10, waku: 5, name: 'マリアライト', gender: '牝', age: 4, sire: 'ディープインパクト', jockey: '戸崎圭太', trainer: '久保田貴士', stable: '美浦', lastRaceResult: 1, secondLastRaceResult: 1, lastRaceName: 'エリザベス女王杯', g1Wins: 1, arimaExperience: false, jockeyChange: false, weight: 55 },
+    { number: 11, waku: 6, name: 'ルージュバック', gender: '牝', age: 3, sire: 'マンハッタンカフェ', jockey: '田辺裕信', trainer: '大竹正博', stable: '美浦', lastRaceResult: 7, secondLastRaceResult: 3, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 53 },
+    { number: 12, waku: 6, name: 'アドマイヤデウス', gender: '牡', age: 4, sire: 'アドマイヤドン', jockey: 'J.モレイラ', trainer: '橋田満', stable: '栗東', lastRaceResult: 9, secondLastRaceResult: 3, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: true, weight: 57 },
+    { number: 13, waku: 7, name: 'ゴールドシップ', gender: '牡', age: 6, sire: 'ステイゴールド', jockey: '岩田康誠', trainer: '須貝尚介', stable: '栗東', lastRaceResult: 8, secondLastRaceResult: 1, lastRaceName: 'ジャパンC', g1Wins: 6, arimaExperience: true, jockeyChange: true, weight: 57 },
+    { number: 14, waku: 7, name: 'サウンズオブアース', gender: '牡', age: 4, sire: 'ネオユニヴァース', jockey: 'M.デムーロ', trainer: '藤岡健一', stable: '栗東', lastRaceResult: 3, secondLastRaceResult: 7, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 57 },
+    { number: 15, waku: 8, name: 'カレンミロティック', gender: '牡', age: 6, sire: 'ハーツクライ', jockey: '武豊', trainer: '平田修', stable: '栗東', lastRaceResult: 10, secondLastRaceResult: 8, lastRaceName: 'ジャパンC', g1Wins: 0, arimaExperience: true, jockeyChange: false, weight: 57 },
+    { number: 16, waku: 8, name: 'タッチングスピーチ', gender: '牝', age: 4, sire: 'ディープインパクト', jockey: 'C.ルメール', trainer: '堀宣行', stable: '美浦', lastRaceResult: 3, secondLastRaceResult: 4, lastRaceName: 'エリザベス女王杯', g1Wins: 0, arimaExperience: false, jockeyChange: false, weight: 55 },
+  ],
+};
+
 // 全データをエクスポート
 export const pastRaces: PastRaceResult[] = [
   arima2024,
@@ -141,6 +261,11 @@ export const pastRaces: PastRaceResult[] = [
   arima2022,
   arima2021,
   arima2020,
+  arima2019,
+  arima2018,
+  arima2017,
+  arima2016,
+  arima2015,
 ];
 
 export default pastRaces;
