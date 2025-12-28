@@ -5,34 +5,35 @@
 
 import type { Horse, ScoreResult, ScoringConfig, PredictionResult } from '../types.js';
 
-/** デフォルトの重み設定（過去データ分析に基づく） */
+/** デフォルトの重み設定（バックテスト結果に基づき改善） */
 export const DEFAULT_CONFIG: ScoringConfig = {
-  wakuWeight: 15,      // 枠順の影響は大きい
-  ageWeight: 12,       // 年齢も重要
-  jockeyWeight: 20,    // 騎手が最重要
-  trainerWeight: 10,   // 厩舎
-  bloodlineWeight: 12, // 血統
-  recentFormWeight: 18,// 近走成績
-  g1Weight: 8,         // G1実績
-  continuityWeight: 5, // 継続騎乗
+  wakuWeight: 8,       // 枠順は重要だが過大評価しない（外枠でも好走あり）
+  ageWeight: 10,       // 年齢
+  jockeyWeight: 18,    // 騎手は重要
+  trainerWeight: 12,   // 厩舎（木村哲也、友道など実績厩舎は強い）
+  bloodlineWeight: 10, // 血統
+  recentFormWeight: 12,// 近走成績（過大評価しない、実力馬は巻き返す）
+  g1Weight: 20,        // G1実績を最重視（底力勝負）
+  continuityWeight: 10,// 継続騎乗（乗り替わりでも実力騎手なら問題なし）
 };
 
 /**
  * 枠順スコア
- * 過去10年データ: 5枠が最強(複勝率30%)、4枠も好成績、7・8枠は苦戦
+ * 過去データ: 5枠が最強だが、8枠でも好走例あり（2023,2024年とも8枠16番が2着）
+ * → 外枠のペナルティを緩和
  */
 export function calcWakuScore(horse: Horse): number {
   const wakuScores: Record<number, number> = {
-    1: 60,  // 複勝率21.1%だが勝率5.3%
-    2: 50,  // 過去10年勝ち馬ゼロ
-    3: 70,  // 複勝率20%
-    4: 85,  // 勝率15%、複勝率25%
-    5: 100, // 最強！勝率15%、複勝率30%
-    6: 65,  // まずまず
-    7: 40,  // 過去10年勝ち馬ゼロ
-    8: 35,  // 過去10年勝ち馬ゼロ、複勝率10-15%
+    1: 70,  // 内枠は有利だが最内は揉まれるリスク
+    2: 65,  //
+    3: 80,  // 好枠
+    4: 90,  // 好枠
+    5: 100, // 最強！
+    6: 75,  // まずまず
+    7: 60,  // 外枠だが致命的ではない
+    8: 55,  // 外枠だが2023,2024年とも2着あり（ペナルティ緩和）
   };
-  return wakuScores[horse.waku] ?? 50;
+  return wakuScores[horse.waku] ?? 65;
 }
 
 /**
@@ -194,27 +195,44 @@ export function calcRecentFormScore(horse: Horse): number {
 
 /**
  * G1実績スコア
+ * 有馬記念は実力勝負。G1勝ち馬は底力が違う
  */
 export function calcG1Score(horse: Horse): number {
-  if (horse.g1Wins >= 2) {
+  // G1を3勝以上
+  if (horse.g1Wins >= 3) {
     return 100;
   }
+  // G1を2勝
+  if (horse.g1Wins === 2) {
+    return 90;
+  }
+  // G1を1勝
   if (horse.g1Wins === 1) {
-    return 75;
+    return 80;
   }
-  // 有馬記念出走経験は評価
+  // 有馬記念出走経験（コース適性あり）
   if (horse.arimaExperience) {
-    return 50;
+    return 65;
   }
-  return 30;
+  // G1未勝利
+  return 40;
 }
 
 /**
  * 継続騎乗スコア
  * 過去データ: 継続騎乗が8勝、乗り替わり2勝
+ * ただし、乗り替わりでも実力騎手（ルメール、デムーロなど）なら影響小
  */
 export function calcContinuityScore(horse: Horse): number {
-  return horse.jockeyChange ? 40 : 100;
+  if (!horse.jockeyChange) {
+    return 100; // 継続騎乗は高評価
+  }
+  // 乗り替わりでも実力騎手ならペナルティ軽減
+  const topJockeys = ['C.ルメール', 'C.デムーロ', '川田将雅', '武豊', 'R.ムーア', 'D.レーン', 'T.マーカンド'];
+  if (topJockeys.includes(horse.jockey)) {
+    return 70; // 実力騎手への乗り替わりは許容
+  }
+  return 50; // その他の乗り替わりは中程度のペナルティ
 }
 
 /**

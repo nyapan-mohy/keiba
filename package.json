@@ -11,6 +11,7 @@
     "start": "tsx src/index.ts",
     "predict": "tsx src/index.ts",
     "detail": "tsx src/index.ts --detail",
+    "backtest": "tsx src/backtest.ts",
     "build": "tsc",
     "test": "tsx src/index.ts"
   },
